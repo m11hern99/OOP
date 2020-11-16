@@ -68,7 +68,7 @@ public class ClockIcon implements Moveable{
 			alpha = alpha + (Math.PI / 30);
 		}
 		if((count % 720) == 0) {
-			gamma = gamma + (Math.PI/6);
+			gamma = gamma + (Math.PI/30);
 		}
 	}
 	public void draw(Graphics2D g2) {
