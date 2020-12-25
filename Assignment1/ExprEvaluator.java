@@ -7,7 +7,7 @@ public class ExprEvaluator{
 	private int p;
 	
 	public ExprEvaluator(){
-		System.out.println("Enter an expression. A negative number should have a minus sign followed immediately by a digit or a decimal point,\nnegative numbers should also usually be surrounded by parentheses: ");;
+		System.out.println("Enter an expression. A negative number should have a minus sign followed immediately by a digit or a decimal point, negative numbers should also usually be surrounded by parentheses: ");
 		e = kb.nextLine(); 
 		p = 0;   
 	}	 
