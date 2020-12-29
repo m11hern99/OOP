@@ -7,7 +7,7 @@ import javax.swing.*;
 public class HourglassTester {
 	public static void main(String[] args) {
 
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame("Hourglass");
 
 		final Moveable shape = new Hourglass(0, 0, 300);
 

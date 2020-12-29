@@ -20,11 +20,11 @@ public class Hourglass implements Moveable {
 	public void draw(Graphics2D g2) {
 
 		Rectangle2D.Double rec = new Rectangle2D.Double(0, 0, 400, 400);
-		g2.setColor(Color.black);
+		g2.setColor(Color.decode("#86B4FA"));
 		g2.fill(rec);
 
 		GeneralPath path = new GeneralPath(GeneralPath.WIND_EVEN_ODD);
-		g2.setColor(Color.yellow);
+		g2.setColor(Color.pink);
 		g2.setStroke(new BasicStroke(1));
 		
 		path.moveTo(200, 200);
@@ -45,7 +45,7 @@ public class Hourglass implements Moveable {
 			g2.fill(sand);
 		}
 		g2.setStroke(new BasicStroke(8));
-		g2.setColor(Color.green);
+		g2.setColor(Color.white);
 		Shape line = new Line2D.Double(0.0, 400, 400.0, 0.0);
 		g2.fill(line);
 		g2.draw(line);

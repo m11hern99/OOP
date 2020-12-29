@@ -8,7 +8,7 @@ public class ShapeIcon implements Icon {
 	private int width;
 	private int height;
 	private Moveable shape;
-	
+
 	public ShapeIcon(Moveable s, int x, int y) {
 		shape = s;
 		width = x;
@@ -28,4 +28,3 @@ public class ShapeIcon implements Icon {
 	}
 
 }
-

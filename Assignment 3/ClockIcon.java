@@ -6,7 +6,6 @@ import java.util.*;
 
 public class ClockIcon implements Moveable{
 	Random gen = new Random();
-	Color c = Color.BLACK;
 	double theta = (-Math.PI / 2);
 	double gamma = (-Math.PI / 2);
 	double alpha = (-Math.PI / 2);
@@ -14,7 +13,7 @@ public class ClockIcon implements Moveable{
 	private int x,y,width;
 	private int h = 0,m = 0,count =0;
 	int reset = 1;
-	
+
 	public ClockIcon(int q, int p, int s, int a, int b, int c){
 		x = q;
 		p = y;
@@ -28,33 +27,33 @@ public class ClockIcon implements Moveable{
 		h = x;
 		gamma = (-Math.PI/2) + ( x * (Math.PI / 6));
 	}
-	
+
 	public void setM(int x){
 		m = x;
 		alpha = (-Math.PI/2) + ( x * (Math.PI / 30));
 	}
-	
+
 	public void setCount(int x){
 		count = x + (m*60) +  (h * 3600) ;
 		theta = (-Math.PI/2) + ( x * (Math.PI / 30)); 
 	}
-	
+
 	public void setReset(){
 		reset = 0;
 	}
-	
+
 	public int getH(){
 		return h;
 	}
-	
+
 	public int getM(){
 		return m;
 	}
-	
+
 	public int getCount(){
 		return count;
 	}
-	
+
 	public void translate(int dx, int dy) {
 		if(reset == 0) {
 			theta = (-Math.PI / 2);
@@ -72,29 +71,28 @@ public class ClockIcon implements Moveable{
 		}
 	}
 	public void draw(Graphics2D g2) {
-		
+
 		Point2D.Double endSecond = new Point2D.Double(300 + 120*Math.cos(theta), 300 + 120*Math.sin(theta));
 		g2.setStroke(new BasicStroke(2));
-		g2.setColor(c);
+		g2.setColor(Color.black);
 		Shape seconds = new Line2D.Double(origin, endSecond);
 		g2.fill(seconds);
 		g2.draw(seconds);
-				
+
 		Point2D.Double endMinutes = new Point2D.Double(300 + 140*Math.cos(alpha), 300 + 140*Math.sin(alpha));
 		g2.setStroke(new BasicStroke(5));
 		Shape minutes = new Line2D.Double(origin, endMinutes);
 		g2.fill(minutes);
 		g2.draw(minutes);
-		
+
 		Point2D.Double endHour = new Point2D.Double(300 + 100*Math.cos(gamma), 300 + 100*Math.sin(gamma));
 		g2.setStroke(new BasicStroke(5));
 		Shape hour = new Line2D.Double(origin, endHour);
 		g2.draw(hour);
 
 		Ellipse2D.Double circle =  new Ellipse2D.Double(292.5, 292.5,15,15);
-		g2.setColor(Color.BLACK);
 		g2.fill(circle);
-		
+
 		for(int j=0;j<60;j++) {
 			circle =  new Ellipse2D.Double( (300 + (170*Math.cos(j* (Math.PI / 30)))) - 2, (300 + (170*Math.sin(j* (Math.PI / 30)))) - 2, 4, 4);
 			g2.fill(circle);

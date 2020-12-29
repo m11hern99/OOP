@@ -1,19 +1,20 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.Stack;
 public class ExprEvaluator{
 	Scanner kb =  new Scanner(System.in);
 	private static Stack<Character> A = new Stack<Character>();
 	private static Stack<Double> B = new Stack<Double>(); 
 	private String e;
 	private int p;
-	
+
 	public ExprEvaluator(){
-		System.out.println("Enter an expression. A negative number should have a minus sign followed immediately by a digit or a decimal point, negative numbers should also usually be surrounded by parentheses: ");
+		System.out.println("Enter an expression. A negative number should have a minus sign followed immediately by a digit or a decimal point,\nnegative numbers should also usually be surrounded by parentheses: ");;
 		e = kb.nextLine(); 
 		p = 0;   
 	}	 
 	public ExprEvaluator(String ee){
-	    e = ee;
-	    p = 0;  
+		e = ee;
+		p = 0;  
 	}
 	public String getExpression(){
 		return e;
@@ -41,7 +42,7 @@ public class ExprEvaluator{
 			break;
 		}
 		B.push(val); 
-	  }  
+	}  
 	private static void evalDown(){
 		do {
 			eval();
@@ -64,40 +65,40 @@ public class ExprEvaluator{
 	}
 	private double formNum(){
 		double total = 0.0;
-	    int count = 0;
-	    int flag = 0;
-	    double mult = 1.0;
-	    char c,d;
-	    do{
-	    	c = e.charAt(p);
-	    	if(c == '.'){
-	    		flag = 1; 
-	    	}
-	    	else{
-	    		if((c >= '0') && (c<= '9')){
-	    			total = total * mult;
-	    			total = total + (c-'0');
-	    			mult = 10.0;
-	    			if(flag == 1){
-	    				count++; 
-	    			}
-	    		}
-	    		else {
-	    			if(c == '-') {
-	    				A.pop();
-	    			}
-	    		}
-	    	}
-	    	p++; 
-	    	d = '?';
-	    	if(p < e.length()) {
-	    		d = e.charAt(p); 
-	    	}
-	    }while((p < e.length()) && ( ((d<='9')&&(d>='0')) || (d == '.') || d == ' '));
-	    if(flag==1){
-	    	total = total/Math.pow(10.0,count*1.0);                                       
-	    }
-	    return total;
+		int count = 0;
+		int flag = 0;
+		double mult = 1.0;
+		char c,d;
+		do{
+			c = e.charAt(p);
+			if(c == '.'){
+				flag = 1; 
+			}
+			else{
+				if((c >= '0') && (c<= '9')){
+					total = total * mult;
+					total = total + (c-'0');
+					mult = 10.0;
+					if(flag == 1){
+						count++; 
+					}
+				}
+				else {
+					if(c == '-') {
+						A.pop();
+					}
+				}
+			}
+			p++; 
+			d = '?';
+			if(p < e.length()) {
+				d = e.charAt(p); 
+			}
+		}while((p < e.length()) && ( ((d<='9')&&(d>='0')) || (d == '.') || d == ' '));
+		if(flag==1){
+			total = total/Math.pow(10.0,count*1.0);                                       
+		}
+		return total;
 	}
 	public double evaluator() {
 		char token; 
@@ -136,20 +137,19 @@ public class ExprEvaluator{
 		}while(p < e.length());
 		while(A.size()>0) {
 			eval();
-	    }
-		
-	    double x = B.pop();
-	    
-	    expressionOutput((double)Math.round(x*10000000)/10000000.0); 
-	    return x; 
+		}
+
+		double x = B.pop();
+
+		return x; 
 	} 
 	public static void expressionOutput(double x) {
 		if(x == (double)Math.round(x)) {
 			int intAns = (int)x;
 			System.out.println("The answer to this equation is: " + intAns + '\n');
-	    }
-	    else{
-	    	System.out.println("The answer to this equation is: " + x + '\n');
-	    }
-	  }
+		}
+		else{
+			System.out.println("The answer to this equation is: " + x + '\n');
+		}
+	}
 }

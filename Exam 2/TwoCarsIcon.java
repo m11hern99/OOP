@@ -1,4 +1,3 @@
-// this has i amount circles in each track.
 import java.awt.*;
 import java.util.*;
 import java.awt.Color;
@@ -21,7 +20,7 @@ public class TwoCarsIcon implements Moveable
 	public TwoCarsIcon(int x0, int y0, int w){
 		width = w;
 		n = w/40;
-		theta =0;  // Math.toRadians(digit)) // 120 = number of circles in 15 tracks
+		theta =0;  // 120 = number of circles in 15 tracks
 		z=0;
 		for (int i=0; i<= n-1; i= i+2){   // this is for the track 
 			int k = i + 1;  // this is the number of circles in a track
